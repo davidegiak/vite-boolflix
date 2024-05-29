@@ -4,11 +4,16 @@ import axios from "axios"
 
 // ******************AXIOS TESTATO E FUNZIONANTE
 mounted: {
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDdiZWJhNTQ1NDZkOTg0YzRlYjJmZTY5NDM2YjFiYyIsInN1YiI6IjY2NTcyNmQ4ODBiNTM3ZjA4OTcwOTgyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.L0pc_jyclpXbulnDXm6e5m6NxVO4EpiSNAveWbVJJ14'
-  }
-  axios.get('https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1').then((r)=> {
+  // axios.get('https://api.themoviedb.org/3/', {
+  //   headers: {
+  //   accept: 'application/json',
+  //   Authorization: 'Bearer a07beba54546d984c4eb2fe69436b1bc',
+  //   query:'search/movie?include_adult=false&language=en-US&page=1'
+  // }
+  // }).then((r)=> {
+  //   console.log(r);
+  // })
+  axios.get('https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d').then((r)=> {
     console.log(r);
   })
 }
