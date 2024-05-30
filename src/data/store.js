@@ -14,7 +14,8 @@ let moviesList = reactive({
     },
     prefisso:"https://image.tmdb.org/t/p/w342",
     series:[],
-    
+    film:"",
+    serie:""
 })
 
 export default (moviesList)

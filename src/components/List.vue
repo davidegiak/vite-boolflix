@@ -12,24 +12,19 @@ export default {
             store
         }
     },
-    methods:{
-        over(){
-            document.querySelector(".imgs").classList.add("d-none")
-            document.querySelector(".info").classList.replace("d-none", "d-block")
-        },
-        leave(){
-            document.querySelector(".imgs").classList.replace("d-none", "d-block")
-            document.querySelector(".info").classList.replace("d-block", "d-none")
-        }
-    }
 }
 
 </script>
 
 
 <template>
+    <h1 class="bg-danger text-center"> {{ this.store.film }} </h1>
     <div class="myCont d-flex flex-wrap justify-content-center gap-2">
-        <Card @mouseover="over()" @mouseleave="leave()" v-for="element in store.movies" :info="element" :lang="store.flags"/>
+        <Card v-for="element in store.movies" :info="element" :lang="store.flags"/>
+        <CardSeries v-for="element in store.series" :lang="store.flags" :infoDue="element" />
+    </div>
+    <h1 class="bg-danger text-center mt-2"> {{ this.store.serie }} </h1>
+    <div class="myCont d-flex flex-wrap justify-content-center gap-2">
         <CardSeries v-for="element in store.series" :lang="store.flags" :infoDue="element" />
     </div>
 </template>
