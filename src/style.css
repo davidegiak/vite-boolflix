@@ -5,7 +5,17 @@
 }
 
 body{
-  background-color: #222;
+  background-color: darkgray;
   font-family: sans-serif;
   color: white;
+}
+
+.myCont {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
 }
