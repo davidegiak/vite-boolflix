@@ -11,6 +11,16 @@ export default {
         return {
             store
         }
+    },
+    methods:{
+        over(){
+            document.querySelector(".imgs").classList.add("d-none")
+            document.querySelector(".info").classList.replace("d-none", "d-block")
+        },
+        leave(){
+            document.querySelector(".imgs").classList.replace("d-none", "d-block")
+            document.querySelector(".info").classList.replace("d-block", "d-none")
+        }
     }
 }
 
@@ -19,7 +29,7 @@ export default {
 
 <template>
     <div class="myCont d-flex flex-wrap justify-content-center gap-2">
-        <Card v-for="element in store.movies" :info="element" :lang="store.flags"/>
+        <Card @mouseover="over()" @mouseleave="leave()" v-for="element in store.movies" :info="element" :lang="store.flags"/>
         <CardSeries v-for="element in store.series" :lang="store.flags" :infoDue="element" />
     </div>
 </template>

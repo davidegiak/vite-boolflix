@@ -15,20 +15,12 @@ export default {
                 return 
             }
         },
-        over(){
-            document.querySelector(".imgs").classList.add("d-none")
-            document.querySelector(".info").classList.replace("d-none", "d-block")
-        },
-        leave(){
-            document.querySelector(".imgs").classList.replace("d-none", "d-block")
-            document.querySelector(".info").classList.replace("d-block", "d-none")
-        }
     }
 }
 </script>
 
 <template>
-    <div @mouseover="over()" @mouseleave="leave" class="card mb-2">
+    <div class="card mb-2">
         <div class="info d-none">
             <h3>Titolo: {{ info.title }} </h3>
             <h4>Titolo Originale: {{ info.original_title }} </h4>
