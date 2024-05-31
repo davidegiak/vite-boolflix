@@ -5,13 +5,13 @@
 }
 
 body{
-  background-color: darkgray;
+  background-color: #383838;
   font-family: sans-serif;
   color: white;
 }
 
 .myCont {
-  width: 1400px;
+  width: 1600px;
   margin: 0 auto;
 }
 
