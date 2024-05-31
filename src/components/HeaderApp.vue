@@ -54,46 +54,69 @@ export default {
                 });
         },
         moviesLink() {
-            this.store.film = "FILM TROVATI"
-            const options = {
-                method: 'GET',
-                url: 'https://api.themoviedb.org/3/discover/movie?api_key=a07beba54546d984c4eb2fe69436b1bc',
-                params: {sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
-                headers: {
-                    accept: 'application/json',
-                }
-            };
-
-            axios
-                .request(options)
-                .then((response) => {
-                    this.store.movies = response.data.results
-                    console.log(this.store.movies);
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
+            if (this.store.movies.length <= 0 && this.store.moviesShut.length <= 0) {
+                this.store.film = "FILM TROVATI"
+                
+                const options = {
+                    method: 'GET',
+                    url: 'https://api.themoviedb.org/3/discover/movie?api_key=a07beba54546d984c4eb2fe69436b1bc',
+                    params: {sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
+                    headers: {
+                        accept: 'application/json',
+                    }
+                };
+    
+                axios
+                    .request(options)
+                    .then((response) => {
+                        this.store.movies = response.data.results
+                        console.log(this.store.movies);
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            }
+            if (this.store.movies.length > 0) {
+                this.store.serie = null;
+                this.store.seriesShut.push(this.store.series);
+                this.store.series = []
+            }
+            else if (this.store.movies.length <= 0 && this.store.moviesShut.length > 0) {
+                this.store.movies.push(this.store.moviesShut.movies)
+            }
         },
         seriesLink() {
-            this.store.serie = "SERIE TROVATE"
-            const options = {
-                method: 'GET',
-                url: 'https://api.themoviedb.org/3/discover/tv?api_key=a07beba54546d984c4eb2fe69436b1bc',
-                params: {sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
-                headers: {
-                    accept: 'application/json',
-                }
-            };
-
-            axios
-                .request(options)
-                .then((response) => {
-                    this.store.series = response.data.results
-                    console.log(this.store.movies);
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
+            if (this.store.series.length <= 0 && this.store.seriesShut.length <= 0) {    
+                this.store.serie = "SERIE TROVATE"
+                const options = {
+                    method: 'GET',
+                    url: 'https://api.themoviedb.org/3/discover/tv?api_key=a07beba54546d984c4eb2fe69436b1bc',
+                    params: {sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
+                    headers: {
+                        accept: 'application/json',
+                    }
+                };
+    
+                axios
+                    .request(options)
+                    .then((response) => {
+                        this.store.series = response.data.results
+                        console.log(this.store.movies);
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            }
+            if (this.store.series.length > 0) {
+                this.store.film = null;
+                this.store.moviesShut.push(this.store.movies);
+                this.store.movies = []
+            }
+            else if (this.store.series.length <= 0 && this.store.seriesShut.length > 0) {
+                this.store.serie = "SERIE TROVATE"
+                this.store.series.push(this.store.seriesShut)
+                console.log(this.store.seriesShut);
+            }
         },
     }
 }
