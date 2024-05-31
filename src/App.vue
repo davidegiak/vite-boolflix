@@ -14,12 +14,35 @@ export default {
     }
   },
   methods: {
-
-  },
-  mounted() {
-    const options = {
+    firstCall() {
+      const options = {
       method: 'GET',
       url: 'https://api.themoviedb.org/3/discover/movie?api_key=a07beba54546d984c4eb2fe69436b1bc',
+      params: { sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
+      headers: {
+        accept: 'application/json',
+      }
+    };
+    axios
+      .request(options)
+      .then((response) => {
+        this.store.movies = response.data.results
+        console.log(this.store.movies);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+      if (this.store.srs === true) {
+        this.store.serie = "SERIE TROVATE"
+      }
+      if (this.store.mvs === true) {
+        this.store.film = "FILM TROVATI"
+      }
+    },
+    secondCall() {
+      const options = {
+      method: 'GET',
+      url: 'https://api.themoviedb.org/3/discover/tv?api_key=a07beba54546d984c4eb2fe69436b1bc',
       params: { sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
       headers: {
         accept: 'application/json',
@@ -28,15 +51,18 @@ export default {
 
     axios
       .request(options)
-      .then((response) => {
-        this.store.film = "FILM TROVATI"
-        this.store.movies = response.data.results
-        console.log(this.store.movies);
+      .then((r) => {
+        this.store.series = r.data.results
+        console.log(this.store.series);
       })
       .catch(function (error) {
         console.error(error);
       });
-
+    }
+  },
+  mounted() {
+    this.firstCall();
+    this.secondCall();
   },
 }
 </script>

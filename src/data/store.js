@@ -16,8 +16,8 @@ let moviesList = reactive({
     series:[],
     film:"",
     serie:"",
-    moviesShut:[],
-    seriesShut:[]
+    mvs:true,
+    srs:true
 })
 
 export default (moviesList)

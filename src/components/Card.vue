@@ -47,6 +47,7 @@ export default {
             <p> {{ info.overview }} </p>
         </div>
         <div class="imgs">
+            <h2 class="sostituto d-flex justify-content-center align-items-center" v-if="info.poster_path == null && info.backdrop_path == null">PIRATAFLIX</h2>
             <img v-if="info.poster_path != null" class="movie-img" :src="prefisso + info.poster_path" alt="">
             <img v-if="info.poster_path == null" class="movie-img backdrop" :src="prefisso + info.backdrop_path" alt="">
         </div>
@@ -71,6 +72,7 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    aspect-ratio: auto;
 }
 
 .info {
@@ -82,6 +84,7 @@ export default {
     color: white;
     overflow-y: hidden;
     background-color: #222;
+    cursor: pointer;
 }
 
 .imgs {
@@ -99,4 +102,16 @@ export default {
 ::-webkit-scrollbar{
     width: 3px;
 }
+
+.sostituto {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3rem;
+    color: red;
+}
+
+
 </style>

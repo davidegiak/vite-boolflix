@@ -42,6 +42,7 @@ export default {
             <p> {{ infoDue.overview }} </p>
         </div>
         <div class="imgs">
+            <h2 class="sostituto d-flex justify-content-center align-items-center" v-if="infoDue.poster_path == null && infoDue.backdrop_path == null">PIRATAFLIX</h2>
             <img class="movie-img" v-if="infoDue.poster_path != null" :src="prefisso + infoDue.poster_path" alt="">
             <img v-if="infoDue.poster_path == null" class="movie-img backdrop" :src="prefisso + infoDue.backdrop_path" alt="">
         </div>
@@ -54,7 +55,6 @@ export default {
     position: relative;
     background-color: #222;
     height: 30rem;
-    object-fit: contain;
 }
 .flags {
     width: 20px;
@@ -62,7 +62,7 @@ export default {
 .movie-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
 }
 .backdrop {
     object-fit: cover;
@@ -78,6 +78,8 @@ export default {
     color: white;
     z-index: 2;
     background-color: #222;
+    cursor: pointer;
+    overflow: hidden;
 }
 .imgs {
     z-index: 1;
@@ -90,6 +92,16 @@ export default {
 
 ::-webkit-scrollbar {
     width: 1px;
+}
+
+.sostituto {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3rem;
+    color: red;
 }
 
 </style>
