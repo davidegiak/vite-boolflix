@@ -63,7 +63,7 @@ export default {
   mounted() {
     this.firstCall();
     this.secondCall();
-  },
+  }
 }
 </script>
 

@@ -14,13 +14,7 @@ export default {
             if (j.startsWith(x)) {
                 return
             }
-        },
-        // truncateString(str, maxLength) {
-        //     if (str.length > maxLength) {
-        //         return str.slice(0, maxLength - 3) + '...';
-        //     }
-        //     return str;
-        // }
+        }
     }
 }
 </script>
@@ -30,6 +24,8 @@ export default {
         <div class="info p-2">
             <span>Titolo </span>
             <h3 class="color-white"> {{ info.title }} </h3>
+            <span>Anno di uscita</span>
+            <h4 class="color-white"> {{ info.release_date }} </h4>
             <span>Titolo Originale </span>
             <h4> {{ info.original_title }} </h4>
             <span>Lingua Originale </span>

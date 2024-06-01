@@ -74,7 +74,54 @@ export default {
                 this.store.srs = false
                 this.store.serie = null
             }
+        },
+        firstCall() {
+            const options = {
+                method: 'GET',
+                url: 'https://api.themoviedb.org/3/discover/movie?api_key=a07beba54546d984c4eb2fe69436b1bc',
+                params: { sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
+                headers: {
+                    accept: 'application/json',
+                }
+            };
+            axios
+                .request(options)
+                .then((response) => {
+                    this.store.movies = response.data.results
+                    console.log(this.store.movies);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+            if (this.store.srs === true) {
+                this.store.serie = "SERIE TROVATE"
+            }
+            if (this.store.mvs === true) {
+                this.store.film = "FILM TROVATI"
+            }
+        },
+        secondCall() {
+            const options = {
+                method: 'GET',
+                url: 'https://api.themoviedb.org/3/discover/tv?api_key=a07beba54546d984c4eb2fe69436b1bc',
+                params: { sort_by: 'popularity.desc', include_video: 'false', include_adult: 'false', language: 'it', page: '1' },
+                headers: {
+                    accept: 'application/json',
+                }
+            };
+
+            axios
+                .request(options)
+                .then((r) => {
+                    this.store.series = r.data.results
+                    console.log(this.store.series);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
         }
+
+
     }
 }
 </script>
@@ -84,12 +131,12 @@ export default {
         <nav class="position-fixed w-100 p-3">
             <div class="myCont d-flex justify-content-between">
                 <div class="appNameCont d-flex justify-content-center align-items-center gap-4">
-                    <a class="appName" href="#"> {{ title }} </a>
+                    <a @click="firstCall(), secondCall()" class="appName" href="#"> {{ title }} </a>
                     <a @click="moviesLink()" href="#">Movies</a>
                     <a @click="seriesLink()" href="#">Series</a>
                 </div>
                 <div class="d-flex align-items-center">
-                    <input v-model="info.input" type="text" placeholder="cerca qui">
+                    <input @keyup.enter="cerca(), cercaDue()" v-model="info.input" type="text" placeholder="cerca qui">
                     <button @click="cerca(), cercaDue()">cerca</button>
                 </div>
             </div>
