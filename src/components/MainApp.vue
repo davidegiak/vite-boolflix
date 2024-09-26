@@ -1,5 +1,5 @@
 <script>
-import List from './List.vue'
+import List from '../pieces/List.vue'
 export default {
     components: {
         List,
@@ -12,5 +12,7 @@ export default {
 </template>
 
 <style scoped>
-
+/* .app-lay{
+    width: 100vW;
+} */
 </style>

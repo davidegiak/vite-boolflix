@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
-    "vue": "^3.4.21"
+    "swiper": "^11.1.14",
+    "vue": "^3.4.21",
+    "vue-country-flag-next": "^2.3.2",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

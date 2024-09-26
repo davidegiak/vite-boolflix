@@ -3,21 +3,38 @@ import { reactive } from 'vue';
 
 
 let moviesList = reactive({
+    film:"",
     movies:[],
+    mvs:true,
+    movieSearched: [],
+    mvsSrcd: true,
+    actionM:  [],
+    animationM: [],
+    comedyM: [],
+    fantasyM: [],
+
+    moviesGenres: [],
+
+
     input: "",
     flags:{
-        it:"../../public/img/it.png",
-        en:"../../public/img/en.png",
-        fr:"../../public/img/fr.png",
-        es:"../../public/img/es.png"
-
+        it:"/img/it.png",
+        en:"/img/en.png",
+        fr:"/img/fr.png",
+        es:"/img/es.png"
     },
     prefisso:"https://image.tmdb.org/t/p/w342",
-    series:[],
-    film:"",
+    imgZero: '',
+    consigliati: [],
+
+
     serie:"",
-    mvs:true,
-    srs:true
+    series:[],
+    srs:true,
+    serieSearched: [],
+    actionAdventureS: [],
+    animationS: [],
+
 })
 
 export default (moviesList)

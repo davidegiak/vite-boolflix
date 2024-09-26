@@ -1,3 +1,4 @@
+
 *{
   margin: 0;
   padding: 0;
@@ -5,17 +6,82 @@
 }
 
 body{
-  background-color: #383838;
+  background-color: #222;
   font-family: sans-serif;
   color: white;
 }
 
 .myCont {
-  width: 1600px;
+  width: 1400px;
   margin: 0 auto;
+}
+.my-slider{
+  width: 80%;
+  height: fit-content;
+  overflow:hidden;
+  scroll-behavior: smooth;
 }
 
 a {
   color: unset;
   text-decoration: none;
+}
+
+ /* ******************************SEARCHBAR */
+.search-bar{
+  --size:60px;
+  border: 1px solid orangered;
+  display: flex;
+  border-radius: 50px;
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+  transition: width 300ms  ease-in-out;
+  overflow: hidden;
+  background-color: #222;
+  z-index: 99999;
+}
+.search-bar:focus-within{
+  width: 30rem;
+}
+.search-bar-input{
+  color: white;
+  flex-grow: 1;
+  background: transparent;
+  font-size: 1.5rem;
+  padding: 0 0.5em;
+  border: 0;
+  height: var(--size);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  line-height: var(--size);
+  opacity: 0;
+  cursor: pointer;
+}
+.search-bar-input:focus{
+  outline: none;
+  background-color: #222;
+}
+.search-bar:focus-within  .search-bar-input{
+  opacity: 1;
+  cursor: initial;
+  width: calc(100% - var(--size));
+}
+.search-bar-submit{
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  color: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: var(--size);
+  height: var(--size);
+  margin-left: auto;
+  transition: background 300ms  ease-in-out;
+}
+.search-bar:focus-within .search-bar-submit{
+  background-color: orange;
 }
