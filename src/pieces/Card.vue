@@ -78,7 +78,7 @@ export default {
 
 <style scoped>
 .card {
-    width: 18rem;
+    /* width: 18rem; */
     position: relative;
     background-color: #222;
     object-fit: contain;
@@ -101,8 +101,8 @@ export default {
     z-index: 2;
     opacity: 0;
     position: absolute;
-    /* height: 100%;
-    width: 100%; */
+    /* height: 100%;*/
+    width: 100%; 
     color: white;
     overflow-y: scroll;
     cursor: pointer;

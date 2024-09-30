@@ -72,7 +72,7 @@ export default {
 
 <style scoped>
 .card {
-    width: 18rem;
+    /* width: 18rem; */
     position: relative;
     background-color: #222;
     object-fit: contain;
@@ -102,8 +102,8 @@ export default {
 .info {
     opacity: 0;
     position: absolute;
-    /* width: 100%;
-    height: 100%; */
+     width: 100%;
+   /* height: 100%; */
     color: white;
     z-index: 2;
     background-color: #222;

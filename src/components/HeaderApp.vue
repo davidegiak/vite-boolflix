@@ -29,7 +29,7 @@ export default {
                 .then((response) => {
                     this.store.movieSearched = response.data.results;
                     console.log(this.store.movieSearched);
-                    
+
                 })
                 .catch(function (error) {
                     console.error(error);
@@ -129,12 +129,27 @@ export default {
                     console.error(error);
                 });
         },
-        filterCall() {
-            axios.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=it&page=1&with_genres=28', {
-                params: { query: 'batman', api_key: 'a07beba54546d984c4eb2fe69436b1bc' },
+        filterCallM(x) {
+            axios.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=it&page=1', {
+                params: {
+                    api_key: 'a07beba54546d984c4eb2fe69436b1bc',
+                    with_genres: x
+                }
             }).then((response) => {
-                console.log('FILTROOOOO', response.data.results);
-                // this.store.actionM = response.data.results;
+                // console.log(response.data.results);
+                this.store.movieSearched = response.data.results;
+
+            })
+        },
+        filterCallS(x) {
+            axios.get('https://api.themoviedb.org/3/discover/tv?include_adult=false&include_video=false&language=it&page=1', {
+                params: {
+                    api_key: 'a07beba54546d984c4eb2fe69436b1bc',
+                    with_genres: x
+                }
+            }).then((response) => {
+                // console.log(response.data.results);
+                this.store.serieSearched = response.data.results;
 
             })
         },
@@ -161,7 +176,7 @@ export default {
                     <RouterLink to="/" class="nav-link text-light py-3 rounded-0">Home</RouterLink>
                 </li>
             </ul>
-            <div class="btn-group dropend">
+            <div class="btn-group dropend mb-2">
                 <button type="button" class="btn dropdown-toggle text-light" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Filtra
@@ -174,11 +189,20 @@ export default {
                     <li class="nav-item border-bottom">
                         <a class="nav-link text-light py-3 rounded-0" @click="moviesLink()" href="#">Film</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item border-bottom">
                         <a class="nav-link text-light py-3 rounded-0" @click="seriesLink()" href="#">Serie TV</a>
                     </li>
+                    <li class="nav-item border-bottom">
+                        <RouterLink to="/search" class="nav-link text-light py-3 rounded-0" @click="filterCallM(28), filterCallS(10759)"
+                            href="#">Azione</RouterLink>
+                    </li>
+                    <li class="nav-item border-bottom">
+                        <RouterLink to="/search" class="nav-link text-light py-3 rounded-0" @click="filterCallM(14), filterCallS(10765)"
+                            href="#">Fantasy</RouterLink>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light py-3 rounded-0" @click="filterCall()" href="#">AZIONE</a>
+                        <RouterLink to="/search" class="nav-link text-light py-3 rounded-0" @click="filterCallM(16), filterCallS(16)"
+                            href="#">Animazione</RouterLink>
                     </li>
                 </ul>
             </div>
