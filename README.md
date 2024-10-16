@@ -6,6 +6,9 @@ I create a Netflix type layout in Vue 3 + Vite, using axios calls to take data f
 ![Screenshot 2024-10-16 150217](https://github.com/user-attachments/assets/123a850b-2c9e-4ce3-8b75-ff7d4244f6da)
 
 
+![Screenshot 2024-10-16 150242](https://github.com/user-attachments/assets/a514affd-1ab9-4d79-b693-26166ddac92a)
+
+
 
 
 
