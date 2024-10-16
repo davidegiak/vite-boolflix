@@ -1,7 +1,7 @@
 # BOOLFLIX
 
 ## Description
-I create a Netflix type layout in Vue 3 + Vite, using axios calls to take data from "The Movie DB". You can search for movies into the searchbar, and you can also filter to have only movies, only series or movies and series filtered by category.
+I create a Netflix type layout in **Vue 3 + Vite**, using axios calls to take data from "**The Movie DB**". You can search for movies into the searchbar, and you can also filter to have only movies, only series or movies and series filtered by category.
 
 ![Screenshot 2024-10-16 150242](https://github.com/user-attachments/assets/a514affd-1ab9-4d79-b693-26166ddac92a)
 
